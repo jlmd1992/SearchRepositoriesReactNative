@@ -13,7 +13,6 @@
         "simulator": "true"
       },
       "android": {
-        "buildCommand": "npm install --legacy-peer-deps && eas build -p android --profile preview",
         "buildType": "apk"        
       }
     },
