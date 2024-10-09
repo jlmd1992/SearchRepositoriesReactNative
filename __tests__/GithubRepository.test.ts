@@ -22,10 +22,10 @@ describe('Github Repository API', () => {
   });
 
   it('should fetch repositories correctly', async () => {
-    mock.onGet('https://api.github.com/search/repositories', { params: { q: 'test', sort: 'stars', per_page: 20 } })
+    mock.onGet('https://api.github.com/search/repositories', { params: { q: 'jlmd', sort: 'stars', per_page: 20 } })
       .reply(200, mockData);
 
-    const result = await fetchRepositories('test');
+    const result = await fetchRepositories('jlmd');
     
     expect(result).toHaveLength(1);
     expect(result[0].repoName).toBe('Test Repo');
@@ -34,6 +34,6 @@ describe('Github Repository API', () => {
   it('should handle errors correctly', async () => {
     mock.onGet('https://api.github.com/search/repositories').reply(403);
 
-    await expect(fetchRepositories('test')).rejects.toThrow('An error occurred: Request failed with status code 403');
+    await expect(fetchRepositories('jlmd')).rejects.toThrow('Error: Request failed with status code 403');
   });
 });

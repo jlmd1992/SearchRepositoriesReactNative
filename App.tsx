@@ -2,8 +2,11 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SearchProvider } from './src/providers/SearchContext';
+import { enableScreens } from 'react-native-screens';
 import HomeScreen from './src/screens/HomeScreen';
 import SelectedScreen from './src/screens/SelectedScreen';
+
+enableScreens();
 
 export type RootStackParamList = {
   Home: undefined;
